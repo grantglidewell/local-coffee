@@ -1,0 +1,14 @@
+{
+  "name": "scrape-coffee",
+  "version": "1.0.0",
+  "description": "scrape local coffee shop offerings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grant Glidewell",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.4.0"
+  }
+}
