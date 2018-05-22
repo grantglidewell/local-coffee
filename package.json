@@ -9,6 +9,7 @@
   "author": "Grant Glidewell",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.243.1",
     "puppeteer": "^1.4.0"
   }
 }
