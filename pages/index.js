@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
+import fetch from 'node-fetch'
 
 const cheerio = require('cheerio')
 const sites = require('../sites.json')
@@ -22,7 +22,6 @@ Index.getInitialProps = async function() {
     .then(allCoffeeData => allCoffeeData)
     .catch(console.error)
 
-  console.log('coffee data', data)
   return {
     coffees: data
   }
