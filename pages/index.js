@@ -5,9 +5,18 @@ const cheerio = require('cheerio')
 const sites = require('../sites.json')
 
 const Index = props => {
+
+  if (!props.coffees) {
+    // this is shitty, but 
+    // compensates for the inability 
+    // to run getInitialProps
+    window.location.reload()
+  }
   return (
     <div>
-      <p style={{ fontSize: 20 }}>{JSON.stringify(props.coffees)}</p>
+      {props.coffees.map(item => {
+        return <div key={Object.keys(item)[0]}><h1>{Object.keys(item)[0]}</h1><p>{Object.values(item)[0]}</p></div>
+      })}
       <Link href="/sites">
         <a>config</a>
       </Link>
@@ -15,7 +24,7 @@ const Index = props => {
   )
 }
 
-Index.getInitialProps = async function() {
+Index.getInitialProps = async function () {
   const data = await Promise.all(
     Object.keys(sites).map(site => getCoffee(site))
   )
