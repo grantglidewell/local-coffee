@@ -1,7 +1,7 @@
 {
-  "Bird Rock": {
-    "url": "https://www.birdrockcoffee.com/collections/roasted-coffee",
-    "class": "info"
+  "James Coffee": {
+    "url": "https://jamescoffeeco.com/pages/coffee",
+    "class": "nameline"
   },
   "Lofty Coffee": {
     "url": "https://loftycoffee.com/collections/coffee",
@@ -13,6 +13,14 @@
   },
   "Coffee and Tea Collective": {
     "url": "https://www.coffeeandteacollective.com/collections/coffees",
-    "class": "prod-caption"
+    "class": "grid-view-item__title"
+  },
+  "Zumbar": {
+    "url": "https://www.zumbarcoffee.com/buycoffee/",
+    "class": "summary-content"
+  },
+  "Mostra": {
+    "url": "https://www.mostracoffee.com/shop/",
+    "class": "product-meta"
   }
 }
