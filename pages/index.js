@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 const cheerio = require('cheerio');
 const sites = require('../src/sites.json');
 
-import CoffeeTabs from '../src/CoffeeTabs'
+import CoffeeTabs from '../src/CoffeeTabs';
 
 const getCoffee = async site => {
   const page = await fetch(`${sites[site].url}`).then(res => res.text());
@@ -27,16 +27,17 @@ const Index = ({ coffees }) => {
   }
   return (
     <div>
-      <CoffeeTabs coffees={coffees}/>
+      <CoffeeTabs coffees={coffees} />
       <Link href="/sites">
         <a>config</a>
       </Link>
       <style jsx global>{`
-      body { 
-        margin: 0;
-        padding: 0
-      }
-    `}</style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: '#E9EAE8';
+        }
+      `}</style>
     </div>
   );
 };
