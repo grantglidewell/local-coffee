@@ -22,5 +22,9 @@
   "Mostra": {
     "url": "https://www.mostracoffee.com/shop/",
     "class": "product-meta"
+  },
+  "Lone": {
+    "url": "https://www.lonecoffee.co/coffee/",
+    "class": "product-title"
   }
 }
