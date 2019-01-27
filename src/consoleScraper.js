@@ -11,8 +11,15 @@ async function getCoffee(site) {
     xmlMode: true,
     decodeEntities: true,
   });
-  const selected = $(`.${sites[site].class}`).text();
-  return { [site]: selected.replace(/\s+/g, ' ') };
+
+  const selected = $(`.${sites[site].class}`)
+    .map(function() {
+      return $(this)
+        .text()
+        .replace(/\s+/g, ' ');
+    })
+    .toArray();
+  return { [site]: selected };
 }
 
 const coffeeScrape = Promise.all(

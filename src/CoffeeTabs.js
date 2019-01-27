@@ -10,12 +10,14 @@ export default class CoffeeTabs extends Component {
     return (
       <section
         style={{
+          position: 'absolute',
           height: '100vh',
           width: '100vw',
           backgroundColor: '#E9EAE8',
           color: '#313D3F',
           display: 'flex',
           padding: '3rem',
+          overflow: 'scroll',
         }}
       >
         <nav
@@ -25,7 +27,7 @@ export default class CoffeeTabs extends Component {
         >
           {coffees.map((coffee, i) => {
             return (
-              <div>
+              <div key={i}>
                 <header
                   style={{
                     flex: '1',
@@ -59,7 +61,11 @@ export default class CoffeeTabs extends Component {
                     marginLeft: '4rem',
                   }}
                 >
-                  {Object.values(coffee)[0]}
+                  <ul style={{ listStyle: 'none' }}>
+                    {Object.values(coffee)[0].map(line => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
                 </article>
               </div>
             );

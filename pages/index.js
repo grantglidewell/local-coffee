@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import fetch from 'node-fetch';
 
 const cheerio = require('cheerio');
@@ -6,39 +7,27 @@ const sites = require('../src/sites.json');
 
 import CoffeeTabs from '../src/CoffeeTabs';
 
-const getCoffee = async site => {
-  const page = await fetch(`${sites[site].url}`).then(res => res.text());
-  const $ = cheerio.load(page, {
-    withDomLvl1: true,
-    normalizeWhitespace: false,
-    xmlMode: true,
-    decodeEntities: true,
-  });
-  const selected = $(`.${sites[site].class}`).text();
-  return { [site]: selected.replace(/\s+/g, ' ') };
-};
-
 const Index = ({ coffees }) => {
   if (!coffees) {
-    // this is shitty, but
-    // compensates for the inability
-    // to run getInitialProps
-    window.location.reload();
+    coffees = [{ 'Something Went Wrong': [] }];
   }
   return (
-    <div>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <link rel="shortcut icon" href="/static/favicon.png" />
+        <title>Loacl Coffee</title>
+      </Head>
       <CoffeeTabs coffees={coffees} />
-      <Link href="/sites">
-        <a>config</a>
-      </Link>
       <style jsx global>{`
         body {
           margin: 0;
           padding: 0;
-          background-color: '#E9EAE8';
+          height: 100%;
         }
       `}</style>
-    </div>
+    </>
   );
 };
 
@@ -52,6 +41,24 @@ Index.getInitialProps = async () => {
   return {
     coffees: data,
   };
+};
+
+const getCoffee = async site => {
+  const page = await fetch(`${sites[site].url}`).then(res => res.text());
+  const $ = cheerio.load(page, {
+    withDomLvl1: true,
+    normalizeWhitespace: false,
+    xmlMode: true,
+    decodeEntities: true,
+  });
+  const selected = $(`.${sites[site].class}`)
+    .map(function() {
+      return $(this)
+        .text()
+        .replace(/\s+/g, ' ');
+    })
+    .toArray();
+  return { [site]: selected };
 };
 
 export default Index;
