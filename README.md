@@ -1,6 +1,8 @@
-# Coffee Scraper
+# Local Coffee
 
-a Next.js app that scrapes local coffee roasters and sends SSR react
+a Next.js app delivering the latest information from local coffee roasters. 
+<p align="center">
+<img src="https://raw.githubusercontent.com/grantglidewell/coffee_scraper/master/scrshot.png" alt="screenshot" width="400"/></p>
 
 ## install
 
@@ -9,6 +11,3 @@ a Next.js app that scrapes local coffee roasters and sends SSR react
 ## run
 
     npm run dev
-
-
-![screenshot](https://raw.githubusercontent.com/grantglidewell/coffee_scraper/master/scrshot.png)
